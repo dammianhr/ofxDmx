@@ -26,7 +26,7 @@ public:
 private:	
 	int connected;
 	vector<unsigned char> levels;
-	ofx::IO::SerialDevice device;
+	ofx::IO::SerialDevice serial;
 	bool needsUpdate;
 	
 	bool badChannel(unsigned int channel);
