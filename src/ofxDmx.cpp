@@ -27,7 +27,7 @@ bool ofxDmx::connect(int device, unsigned int channels) {
 	for (std::size_t i = 0; i < devicesInfo.size(); ++i)
     		ofLogNotice("ofxDmx::connect") << "\t" << devicesInfo[i];
     		
-	connected = device.setup(device, 57600); 
+	connected = serial.setup(device, 57600); 
 	if(connected)
     		ofLogNotice("ofxDmx::connect") << "Successfully setup " << devicesInfo[device];
 	else
@@ -45,7 +45,7 @@ bool ofxDmx::connect(string device, unsigned int channels) {
 	for (std::size_t i = 0; i < devicesInfo.size(); ++i)
     		ofLogNotice("ofxDmx::connect") << "\t" << devicesInfo[i];
     		
-	connected = device.setup(device.c_str(), 57600); 
+	connected = serial.setup(device.c_str(), 57600); 
 	if(connected)
     		ofLogNotice("ofxDmx::connect") << "Successfully setup " << devicesInfo[device];
 	else
@@ -88,7 +88,7 @@ void ofxDmx::update(bool force) {
 		// end
 		packet[packetSize - 1] = DMX_PRO_END_MSG;
 		
-		device.writeBytes(&packet[0], packetSize);
+		serial.writeBytes(&packet[0], packetSize);
 		
 #ifdef OFXDMX_SPEW
 		cout << "@" << ofGetSystemTime() << endl;
