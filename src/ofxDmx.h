@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <ofSerial.h> 
+#include <ofxSerial.h> 
 
 class ofxDmx {
 public:
@@ -26,7 +26,7 @@ public:
 private:	
 	int connected;
 	vector<unsigned char> levels;
-	ofSerial serial;
+	ofx::IO::SerialDevice device;
 	bool needsUpdate;
 	
 	bool badChannel(unsigned int channel);
