@@ -18,7 +18,7 @@ ofxDmx::~ofxDmx() {
 	//serial.close();
 	connected = false;
 }
-
+/*
 bool ofxDmx::connect(int device, unsigned int channels) {
 	std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
 
@@ -36,7 +36,7 @@ bool ofxDmx::connect(int device, unsigned int channels) {
 	setChannels(channels);
 	return connected;
 }
-
+*/
 bool ofxDmx::connect(string device, unsigned int channels) {
 		std::vector<ofx::IO::SerialDeviceInfo> devicesInfo = ofx::IO::SerialDeviceUtils::listDevices();
 
@@ -47,9 +47,9 @@ bool ofxDmx::connect(string device, unsigned int channels) {
     		
 	connected = serial.setup(device.c_str(), 57600); 
 	if(connected)
-    		ofLogNotice("ofxDmx::connect") << "Successfully setup " << devicesInfo[device];
+    		ofLogNotice("ofxDmx::connect") << "Successfully setup " ;//<< devicesInfo[device];
 	else
-    		ofLogNotice("ofxDmx::connect") << "Unable to setup " << devicesInfo[device];
+    		ofLogNotice("ofxDmx::connect") << "Unable to setup " ;//<< devicesInfo[device];
     
 	setChannels(channels);
 	return connected;
